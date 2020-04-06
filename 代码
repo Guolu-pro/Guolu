@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<stdlib.h>
+int MAX(int n,int a[])
+{
+	int i,j,m1=0,m2=0;
+	for(i=0;i<n;i++)
+	{
+		m1=0;
+		for(j=i;j<n;j++)
+		{
+			m1=m1+a[j];
+			if(m1>m2)
+				m2=m1;
+		}
+	}
+	return m2;
+}
+int main()
+{
+	int i,j,n,a[50],max=0,flag=0;
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	for(i=0;i<n;i++)
+	{
+		if(a[i]<0)
+			flag=1;
+		else
+		{
+			flag=0;
+			break;
+		}
+	}
+	if(flag==1)
+		printf("0");
+	else
+	{
+		max=MAX(n,a);
+		printf("%d",max);
+	}
+	system("pause");
+	return 0;
+}
